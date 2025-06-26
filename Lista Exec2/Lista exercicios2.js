@@ -143,3 +143,72 @@ const memoizedFn = memoize(slowFn);
 console.log(memoizedFn(16)); // Calcula
 console.log(memoizedFn(16)); // Do cache
 */
+
+ //7. Mapeamento e Ordenação
+// Dado um array produtos = [{ nome, preco }, ...], crie uma função que
+// retorne um novo array apenas com os nomes, ordenados por preço
+// crescente, usando map, sort.
+
+/*
+let produtos = [
+    {nome: 'Uva', preco: 12},
+    {nome: 'Pera', preco: 8},
+    {nome: 'Banana', preco: 5},
+    {nome: 'Laranja', preco: 6},
+    {nome: 'Morango', preco: 20},
+    {nome: 'Kiwi', preco: 17},
+]
+
+function novoArray(lista) {
+    return lista
+    .sort((a, b) => a.preco - b.preco)
+    .map(produto => produto.nome)
+}
+
+console.log(novoArray(produtos))
+*/
+
+//8. Agrupamento por Propriedade
+// Em vendas = [{ cliente, total }, ...], use reduce para gerar um objeto onde
+// cada chave é um cliente e o valor é a soma de todos os seus total.
+/*
+let vendas = [
+    {cliente: 'Fabiano', total: 55},
+    {cliente: 'Otavio', total: 33},
+    {cliente: 'Veronica', total: 27},
+    {cliente: 'Maria', total: 115},
+    {cliente: 'Fabiano', total: 86},
+    {cliente: 'Maria', total: 74},
+]
+
+let somaTotal = vendas.reduce((acumulador, venda) => {
+    acumulador[venda.cliente] = (acumulador[venda.cliente] || 0) + venda.total
+    return acumulador
+}, {})
+
+console.log(somaTotal)
+*/
+//9. Conversão Entre Formatos
+// Escreva duas funções:
+// ○ paresParaObjeto(pares) recebe um array de pares [ [chave,
+// valor], ... ] e retorna o objeto equivalente.
+// ○ objetoParaPares(obj) faz o inverso, retornando um array de
+// pares.
+
+/*
+function paresParaObjeto(pares){
+    return pares.reduce((obj, [chave, valor]) => {
+        obj[chave] = valor
+        return obj
+    }, {})
+}
+    function objetoParaPares(obj) {
+        return Object.entries(obj)
+    }
+
+let pares = [['nome', 'Fabiano'], ['idade', 42]]
+let obj = {nome: 'Fabiano', idade: 42}
+
+console.log(paresParaObjeto(pares))
+console.log(objetoParaPares(obj))
+*/
